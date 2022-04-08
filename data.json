@@ -1,0 +1,88 @@
+{
+    "products": [
+    {
+    "id": 5,
+    "name": "Reinforced", 
+    "category": "glass",
+    "price": 33.78,
+    "currency": "USD", 
+    "image": {
+    "src": "https://inteng-storage.s3.amazonaws.com/img/iea/Xy6x9oE7wr/sizes/glass_md.jpg",
+    "alt": ""
+    },
+    "bestseller": true, 
+    "featured": false, 
+    "details": null
+    },
+    {
+        "id": 1,
+        "name": "Shape",
+        "category": "steel",
+        "price": 93.89,
+        "currency": "USD",
+        "image": {
+            "src": "http://geomiq.com/wp-content/uploads/2019/08/kisspng-sheet-metal-molybdenum-stainless-steel-rolling-inc-steel-plate-5aea05f508ace2.0164818015252863890355.png"
+        },
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+        },
+        {
+        "id": 2,
+        "name": "Wave",
+        "category": "steel",
+        "price": 120.21,
+        "currency": "USD", 
+        "image": {
+        "src": "https://ae01.alicdn.com/kf/Haf859724a1fb4969b0c14c361feafa753/Plaque-en-acier-inoxydable-1-5-paisseur-de-1mm-304mm-2mm-3mm-traitement-du-m-tal.jpg_Q90.jpg_.webp",
+        "alt": ""
+        },
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+        },
+        {
+        "id": 3,
+        "name": "Shape",
+        "category": "steel", 
+        "price": 101,
+        "currency": "USD",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "bestseller": true, 
+        "featured": false,
+        "details": null
+        },
+        {
+        "id": 4,
+        "name": "Recycled Plastic", 
+        "category": "plastic",
+        "price": 101,
+        "currency": "USD", 
+        "image": {
+        "src": "https://previews.123rf.com/images/srckomkrit/srckomkrit1607/srckomkrit160705644/60674894-white-plastic-bag-texture-macro-background.jpg",
+        "alt": ""
+        },
+        "bestseller": false, 
+        "featured": true,
+        "details": {
+        "weight": 2340,
+        "thickness": 2,
+        "description": "",
+        "recommendations": [
+        {
+        "src": "https://t3.ftcdn.net/jpg/04/40/21/94/360_F_440219405_7t7hGyjZg2XWFN5kJnVYE3pa0p04WRWT.jpg",
+        "alt": ""
+        },
+        {
+        "src": "https://t3.ftcdn.net/jpg/03/26/90/02/360_F_326900211_tdZwKQ7Q9mJfx6B3K62q10L7KGt9Y78H.jpg",
+        "alt": ""
+        },
+        {
+        "src": "https://wallpaperaccess.com/full/5704566.jpg",
+        "alt": ""
+        }
+    ]
+}
+        }
+    ]
+}
