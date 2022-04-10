@@ -4,13 +4,18 @@ import logo from '../../public/images/logo.bmp'
 import Image from 'next/image'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 import img from '../../public/images/2641396.jpg'
+import { useStateMachine } from 'little-state-machine'
+import updateProductsToCart from '../../store/updateAction'
+import clearAction from '../../store/clearAction'
 
 const Navbar = () => {
     const [toggleQuickCart, setToggleQuickCart] = useState<boolean>()
+    const { actions, state } = useStateMachine({ updateProductsToCart, clearAction })
+    console.log({ state })
     const classes = useStyles()
     return (
     <nav className={classes.nav}>
-        <span>
+        <span className={classes.span_logo_container}>
             <Image src={logo} width={300} height={120} alt="logo"/>
         </span>
 
@@ -27,7 +32,10 @@ const Navbar = () => {
                     <Image src={img} width={150} height={92} alt={''} />
                 </div>
                 <hr />
-                <button className={classes.button}>Clear</button>
+                <button className={classes.button} onClick={() => { 
+                    actions.clearAction(undefined) 
+                    setToggleQuickCart(false)
+                    }}>Clear</button>
             </div>}
         </span>
     </nav>

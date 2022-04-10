@@ -1,41 +1,62 @@
+import React, { FC, useState } from 'react'
 import { Grid } from '@mui/material'
-import React, { FC } from 'react'
 import useStyles from './style'
-import headerImg from '../../../../public/images/2641396.jpg'
-import img1 from '../../../../public/images/images.jpg'
-import img2 from '../../../../public/images/2641396jk.jpg'
-import img3 from '../../../../public/images/download.jpg'
 import Image from 'next/image'
+import { IProduct } from '../../../../interface/IProducts'
+import productsData from '../../../../data.json'
+import { useStateMachine } from 'little-state-machine'
+import updateProductsToCart from '../../../../store/updateAction'
 
 const Header: FC = () => {
-    const classes = useStyles()
+  const { actions, state } = useStateMachine({ updateProductsToCart })
+  
+  // This variable filters the fetched data to get the object with the recommendations products
+  const filteredProduct = productsData.products.find(({ details }) => details)
+
+  const [selectedImg, setSelectedImg] = useState(filteredProduct)
+
+  // This function filters the selected img from the recommendation arrays and make it the selected img { image: selectedImage }, and replace it with the preSelectedImage
+  const handleClickSelectImg: (value: { src: string; alt: string}) => void = (img) => {
+    const preSelectedImg = selectedImg?.image
+
+    setSelectedImg({ ...selectedImg,
+      details: {...selectedImg?.details, recommendations: [...selectedImg?.details?.recommendations?.filter(({ src }) => src !== img?.src), preSelectedImg]},
+      image: img
+    })
+  }
+
+  const handleAddToCart = () => {
+    actions.updateProductsToCart({ ...state, product: selectedImg })
+  }
+
+  const classes = useStyles()
   return (
     <header className={classes.header}>
+      <div className={classes.div}>
       <div className={classes.div_wrapper}>
-        <h1>Recycled Plastic</h1>
+        <h1>{selectedImg?.name}</h1>
         <span>
-        <button className={classes.btn}>Add to cart</button>
+          <button className={classes.btn} onClick={handleAddToCart}>Add to cart</button>
         </span>
       </div>
 
       <div className={classes.div_bgImg_wrapper}> 
         {true && <span className={classes.span_featured}> Featured</span>}
-        <Image src={headerImg} layout='responsive' width={1280} height={550} alt={'name material'} />
+        <Image src={selectedImg?.image?.src} layout='responsive' width={1280} height={550} alt={selectedImg?.image?.alt} />
+        </div>
       </div>
 
       <div>
-        <Grid container>
+        <Grid container className={classes.Grid_container}>
           <Grid item xs={12} sm={6}>
             <h4 className={classes.h4}> Materials people also use </h4>
               <div className={classes.div_imgs_wrapper}>
-                <Image src={img1} width={117} height={147} alt='' />
-                <Image src={img2} width={117} height={147} alt='' />
-                <Image src={img3} width={117} height={147} alt='' />
+                { selectedImg?.details?.recommendations?.map(({ src, alt }) => <Image src={src} width={117} height={147} alt={alt} key={src} onClick={() => handleClickSelectImg({ src, alt })} /> )}
               </div>
 
               <p className={classes.h4}>Details</p>
-              <p className={classes.p}>Weight: <span>2340g/m2</span> </p>
-              <p className={classes.p}>Thickness: <span>3cm</span> </p>
+              <p className={classes.p}>Weight: <span>{selectedImg?.details?.weight}/m2</span> </p>
+              <p className={classes.p}>Thickness: <span>{selectedImg?.details?.thickness}cm</span> </p>
           </Grid>
           <Grid item xs={12} sm={6}>
             <h4 className={classes.h4} >About the Recycled Plastic</h4>

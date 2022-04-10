@@ -14,10 +14,23 @@
     "featured": false, 
     "details": null
     },
+    
+    {
+        "id": 3,
+        "name": "Shape",
+        "category": "steel", 
+        "price": 101,
+        "currency": "USD",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+    },
+
     {
         "id": 1,
         "name": "Shape",
-        "category": "steel",
+        "category": "wood",
         "price": 93.89,
         "currency": "USD",
         "image": {
@@ -26,11 +39,12 @@
         "bestseller": false, 
         "featured": false,
         "details": null
-        },
-        {
+    },
+
+    {
         "id": 2,
         "name": "Wave",
-        "category": "steel",
+        "category": "brick",
         "price": 120.21,
         "currency": "USD", 
         "image": {
@@ -40,26 +54,28 @@
         "bestseller": false, 
         "featured": false,
         "details": null
-        },
-        {
-        "id": 3,
-        "name": "Shape",
-        "category": "steel", 
-        "price": 101,
+    },
+ 
+    {
+        "id": 9,
+        "name": "Shape2",
+        "category": "concrete", 
+        "price": 156,
         "currency": "USD",
         "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
         "bestseller": true, 
         "featured": false,
         "details": null
-        },
-        {
+    },
+      
+    {
         "id": 4,
         "name": "Recycled Plastic", 
         "category": "plastic",
         "price": 101,
         "currency": "USD", 
         "image": {
-        "src": "https://previews.123rf.com/images/srckomkrit/srckomkrit1607/srckomkrit160705644/60674894-white-plastic-bag-texture-macro-background.jpg",
+        "src": "https://everytexture.com/wp-content/uploads/2018/10/everytexture.com-stock-plastic-texture-00022-1024x768.jpg",
         "alt": ""
         },
         "bestseller": false, 
@@ -70,19 +86,69 @@
         "description": "",
         "recommendations": [
         {
-        "src": "https://t3.ftcdn.net/jpg/04/40/21/94/360_F_440219405_7t7hGyjZg2XWFN5kJnVYE3pa0p04WRWT.jpg",
-        "alt": ""
+            "src": "https://static1.bigstockphoto.com/5/0/4/large1500/405734930.jpg",
+            "alt": ""
         },
         {
-        "src": "https://t3.ftcdn.net/jpg/03/26/90/02/360_F_326900211_tdZwKQ7Q9mJfx6B3K62q10L7KGt9Y78H.jpg",
-        "alt": ""
+            "src": "https://img.freepik.com/free-photo/wrinkled-plastic-wrap-texture-black-background_53876-96738.jpg?size=626&ext=jpg",
+            "alt": ""
         },
         {
-        "src": "https://wallpaperaccess.com/full/5704566.jpg",
+            "src": "https://wallpaperaccess.com/full/5704566.jpg",
+            "alt": ""
+        }
+        ]
+        }
+    },
+    {
+        "id": 8,
+        "name": "Shape3",
+        "category": "plastic", 
+        "price": 10441,
+        "currency": "USD",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+    },
+    {
+        "id": 19,
+        "name": "Shape2123",
+        "category": "concrete", 
+        "price": 156,
+        "currency": "USD",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "bestseller": true, 
+        "featured": false,
+        "details": null
+    },
+    {
+        "id": 112,
+        "name": "Wave123",
+        "category": "brick",
+        "price": 120.21,
+        "currency": "USD", 
+        "image": {
+        "src": "https://ae01.alicdn.com/kf/Haf859724a1fb4969b0c14c361feafa753/Plaque-en-acier-inoxydable-1-5-paisseur-de-1mm-304mm-2mm-3mm-traitement-du-m-tal.jpg_Q90.jpg_.webp",
         "alt": ""
-        }
-    ]
-}
-        }
-    ]
+        },
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+    },
+ 
+    {
+        "id": 111,
+        "name": "Shapedddd",
+        "category": "wood",
+        "price": 93.89,
+        "currency": "USD",
+        "image": {
+            "src": "http://geomiq.com/wp-content/uploads/2019/08/kisspng-sheet-metal-molybdenum-stainless-steel-rolling-inc-steel-plate-5aea05f508ace2.0164818015252863890355.png"
+        },
+        "bestseller": false, 
+        "featured": false,
+        "details": null
+    }
+]
 }

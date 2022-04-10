@@ -4,6 +4,17 @@ const useStyles = makeStyles(() => ({
     div_container: {
         position: 'relative',
         marginBottom: 20,
+        
+        '@media (max-width: 500px)': {
+            marginBottom: 25,
+            // '& img': {
+            //     // minWidth: '80% !important',
+            //     // minHeight: '80% !important'
+            // },
+            '& p': {
+                fontSize: 18
+            }
+        },
     },
     // Best Seller span
     span: {
@@ -14,7 +25,7 @@ const useStyles = makeStyles(() => ({
     },
     button: {
         display: 'block',
-        marginTop: -46,
+        marginTop: -42,
         zIndex: 4,
         position: 'absolute',
         width: 280,
@@ -25,6 +36,7 @@ const useStyles = makeStyles(() => ({
         height: 40,
         border: 0,
         letterSpacing: 2,
+        transition: '.8 ease-in-out all',
         '&:hover': {
             background: '#fff',
             color: '#000',

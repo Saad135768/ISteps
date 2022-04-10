@@ -7,6 +7,13 @@ const useStyles = makeStyles(() => ({
         marginTop: 20,
         borderBottom: '4px solid #E4E4E4',
     },
+    span_logo_container: {
+        '& img': {
+            minWidth: '80% !important',
+            minHeight: '80% !important',
+            marginLeft: '0 !important'
+        }
+    },
     span_icon_wrapper: {
         display: 'flex',
         alignItems: 'center',
@@ -14,6 +21,12 @@ const useStyles = makeStyles(() => ({
         cursor: 'pointer',
         '& svg': {
             fontSize: 50,
+            '@media (max-width: 500px)': {
+                fontSize: 38
+              },
+            '@media (max-width: 300px)': {
+                fontSize: 33
+              },
         }
     },
     span_cart_counter: {
@@ -27,7 +40,20 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         fontWeight: 700,
         paddingTop: 2,
-        paddingLeft: 2
+        paddingLeft: 2,
+        '@media (max-width: 500px)': {
+            width: 15,
+            fontWeight: 300,
+            paddingLeft: 1,
+        },
+        // '@media (max-width: 300px)': {
+        //     bottom: 8,
+        //     right: 3,
+        // },
+
+        '@media (max-width: 380px)': {
+            display: 'none'
+        },
     },
     div_quick_cart_container:{
         width: 450,
@@ -39,7 +65,18 @@ const useStyles = makeStyles(() => ({
         border: '4px solid #E4E4E4',
         zIndex: 3,
         height: 314,
-        overflowY: 'auto'
+        overflowY: 'auto',
+        '@media (max-width: 959px)': {
+            width: 400,
+            height: 280,
+        },
+
+        '@media (max-width: 520px)': {
+            width: 330,
+          },
+          '@media (max-width: 380px)': {
+            display: 'none'
+        },
     },
     span_close_btn:{
         display: 'flex',
@@ -63,12 +100,18 @@ const useStyles = makeStyles(() => ({
         fontSize: 25,
         fontWeight: 400,
         margin: 0,
-        color: '#656565'
+        color: '#656565',
+        '@media (max-width: 520px)': {
+            fontSize: 14,
+          },
     },
     p_product_name:{
         fontSize: 20,
         fontWeight: 700,
-        margin: '10px 0'
+        margin: '10px 0',
+        '@media (max-width: 520px)': {
+            fontSize: 14,
+          },
     },
     button: {
         width: '100%',
@@ -84,7 +127,10 @@ const useStyles = makeStyles(() => ({
             background: '#000',
             color: 'white',
             border: '1px solid'
-        }
+        },
+        '@media (max-width: 959px)': {
+            padding: 5
+          },
     }
 }))
 

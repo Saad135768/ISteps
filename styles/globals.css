@@ -1,16 +1,37 @@
+
 html,
 body {
+  position: relative;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-family: Archivo, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: 0.45px;
 }
-
+* {
+  box-sizing: border-box;
+  font-family: Archivo, sans-serif;
+}
+li {
+  list-style: none;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
-
-* {
-  box-sizing: border-box;
+.mainComponent {
+  margin-top: 65px;
 }
+.MuiDialog-container {
+  width: 100%;
+}
+
+/* @font-face {
+  font-family: Archivo-Medium.ttf;
+  src: url('../public/fonts/static/Archivo/Archivo-Medium.ttf');
+}
+@font-face {
+  font-family: Archivo-Bold.ttf;
+  src: url('../public/fonts/static/Archivo/Archivo-Bold.ttf');
+} */
