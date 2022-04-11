@@ -25,9 +25,8 @@ const Header: FC = () => {
     })
   }
 
-  const handleAddToCart = () => {
-    actions.updateProductsToCart({ ...state, product: selectedImg })
-  }
+  const handleAddToCart = () => actions.updateProductsToCart({ ...state, products: {...state.products, [selectedImg.id]: selectedImg } })
+  
 
   const classes = useStyles()
   return (

@@ -12,15 +12,26 @@ const Products: FC<{ page: number; pageSize: number, setProductsCount: (value: n
   const [sortByAscendingly, setSortByAscendingly] = useState(true)
   const query = Router?.router?.query
 
-  console.log({ query })
+  const sortProducts = () => {
+    if(sortBy === 'price') return productsData.products?.sort((a, b) => sortByAscendingly ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy])
+    
+    // Sorting by name
+    return productsData.products?.sort((a, b) => sortByAscendingly ? a['name'].charCodeAt(a['name'][0]) - b['name'].charCodeAt(b['name'][0]) : b['name'].charCodeAt(b['name'][0]) - a['name'].charCodeAt(a['name'][0]))
+  }
 
-  const sortProducts = () => productsData.products?.sort((a, b) => sortByAscendingly ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy])
   const sliceProducts = () => sortProducts().slice((page - 1) * pageSize, (page * pageSize))
-  const filterProducts = () => { 
-   const filteredProducts =  sliceProducts()?.filter(({ category }) => query?.category ? query.category.includes(category) : category).filter(({ price }) => query?.price ? query?.price === price.toString() : price)
-   console.log({ filteredProducts })
+
+  const filterProducts = () => {
+    // let filteredProducts
+    // if(query?.['price']) {
+    //    filteredProducts =  sliceProducts()?.filter(({ price }) => +query?.price === price)
+    // } 
+    // else {
+    //   filteredProducts =  sliceProducts()?.filter(({ category }) => query?.category ? query.category.includes(category) : category)
+    // }
+    // return filteredProducts
+    return sliceProducts()?.filter(({ category }) => query?.category ? query.category.includes(category) : category)?.filter(({ price }) => query?.price? +query?.price === price : price)
   //  setProductsCount(filteredProducts?.length)
-   return filteredProducts
   }
   
   useEffect(() => {

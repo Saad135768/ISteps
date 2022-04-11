@@ -5,9 +5,7 @@ import { Container } from '@mui/material'
 import Navbar from '../modules/navbar'
 
 
-createStore({
-  products: []
-})
+createStore({})
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

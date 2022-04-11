@@ -10,6 +10,7 @@ import { omit } from 'ramda'
 import queryString from 'query-string'
 
 const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
+
   // Those line are to make filters somehow dynamically, I fetch all categories and filter them to make sure no reptition
   const categories: string[] = [...new Set(productsData.products.map(({ category }) => category))]
   const price: number[] = [ ...new Set(productsData.products.map(({ price }) => price))]
@@ -20,40 +21,43 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
 
   const query = Router?.router?.query
 
-  const handleChangeFilteringCategories = (e, type: string = 'category') => {
-    if (e.target.value === query?.[type]) {
-        // deselect
-        return Router.push({ query: omit([type], { ...query }) }, undefined, { scroll: false })
+  const handleChangeFilteringCategories = (e) => {
+    
+    // deselect
+    if (e.target.value === query?.['category']) {
+        return Router.push({ query: omit(['category'], { ...query }) }, undefined, { scroll: false })
     }
 
-    else if (Array.isArray(query?.[type]) && (query?.[type]?.includes(e.target.value))) {
-        const deselect = query?.[type].filter((q) => q !== e.target.value)
-        Router.push({ query: omit([type], { ...query }), query: {...query, [type]: deselect }}, undefined, { scroll: false })
+    else if (Array.isArray(query?.['category']) && (query?.['category']?.includes(e.target.value))) {
+        const deselect = query?.['category'].filter((q) => q !== e.target.value)
+        Router.push({ query: omit(['category'], { ...query }), query: {...query, ['category']: deselect }}, undefined, { scroll: false })
     }
 
-    else if(((query?.[type]) && (e.target.value !== query?.[type]))) {
+    else if(((query?.['category']) && (e.target.value !== query?.['category']))) {
           // select multiple filters in same category
-          Router.push(`?${queryString.stringify(query)}&${[type]}=${e.target.value}&page=1`, undefined, { scroll: false })
+          Router.push(`?${queryString.stringify(query)}&${['category']}=${e.target.value}&page=1`, undefined, { scroll: false })
     }
 
     else {
           // Select for first time
-        Router.push({ query: { ...query, [type]: e.target.value, page: 1 } }, undefined, { scroll: false })
+        Router.push({ query: { ...query, ['category']: e.target.value, page: 1 } }, undefined, { scroll: false })
       }
     }
     
+
     if(Array.isArray(query?.page)) {
         omit(['page'], { ...query})
         Router.push({ query: { ...query, page: 1 }}, undefined, { scroll: false } )
       }
 
+
       const hanldeFilterByPrice = (e) => {
-        if (e.target.value === query?.price) {
-            // deselect
-            return Router.push({ query: omit(['price'], { ...query }) }, undefined, { scroll: false })
-        } else {
-            Router.push({ query: { ...query.cateogry, ...query.page, price: e.target.value } }, undefined, { scroll: false })
-        }
+        // if (e.target.value === query?.price) {
+        //     // deselect
+        //     return Router.push({ query: omit(['price'], { ...query }), ...query }, undefined, { scroll: false })
+        // } else {
+            Router.push({ query: { ...query?.cateogry, page: 1, price: e.target.value } }, undefined, { scroll: false })
+        // }
         
       }
 
@@ -71,7 +75,7 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
                   label={category}
                   labelPlacement='end'
                   onChange={(e) =>
-                    handleChangeFilteringCategories(e, 'category')
+                    handleChangeFilteringCategories(e)
                   }
                   value={category}
                   checked={query?.category?.includes(category)}
@@ -107,9 +111,9 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
                 control={<Checkbox color='primary' />}
                 label={`$${averagePrice} - $${maxPrice}`}
                 labelPlacement='end'
-                value={averagePrice}
+                value={156}
                 onChange={hanldeFilterByPrice}
-                checked={+query?.price === averagePrice}
+                checked={+query?.price === maxPrice}
               />
             </div>
 

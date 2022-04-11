@@ -25,9 +25,8 @@ const Home = () => {
   //   }
   // })
 
-  console.log(productsCount)
   const handleChangeRoute = (_, value: number) => {
-    Router.push({ query: { ...Router?.router?.query, page: value } })
+    Router.push({ query: { ...Router?.router?.query, page: value } }, undefined, { scroll: false })
   }
 
   const classes = useStyles()
@@ -44,7 +43,11 @@ const Home = () => {
         <Products setProductsCount={setProductsCount} page={+page} pageSize={pageSize} />
       </Grid>
       <div className={classes.div_pagination_container}>
-        <Pagination count={Math.ceil(productsCount / pageSize)} shape="rounded" onChange={handleChangeRoute} page={+page} />
+        <Pagination count={Math.ceil(productsCount / pageSize)} shape="rounded" onChange={handleChangeRoute} page={+page}
+         hidePrevButton={+page === 1}
+         hideNextButton={+page === Math.ceil(productsCount / pageSize)}
+         
+         />
       </div>
     </div>
   )

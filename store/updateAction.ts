@@ -1,9 +1,9 @@
 import { IProduct } from '../interface/IProducts'
 
-export default function updateProductsToCart (state, payload) {
+export default function updateProductsToCart (state: { products: {[key: number]: IProduct}}, payload) {
   return {
-    // products: [...state],
     ...state,
     ...payload
   }
 }
+
