@@ -14,6 +14,10 @@ const useStyles = makeStyles(() => ({
             display: 'none',
           },
     },
+    div: {
+        borderBottom: '1px solid #C2C2C2',
+        paddingBottom: 20
+    },
     h6: {
         fontSize: 20,
         fontWeight: 700,

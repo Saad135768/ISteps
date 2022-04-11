@@ -1,18 +1,18 @@
 {
     "products": [
     {
-    "id": 5,
-    "name": "Reinforced", 
-    "category": "glass",
-    "price": 33.78,
-    "currency": "USD", 
-    "image": {
-    "src": "https://inteng-storage.s3.amazonaws.com/img/iea/Xy6x9oE7wr/sizes/glass_md.jpg",
-    "alt": ""
-    },
-    "bestseller": true, 
-    "featured": false, 
-    "details": null
+        "id": 5,
+        "name": "Reinforced", 
+        "category": "glass",
+        "price": 33.78,
+        "currency": "USD", 
+        "image": {
+        "src": "https://inteng-storage.s3.amazonaws.com/img/iea/Xy6x9oE7wr/sizes/glass_md.jpg",
+        "alt": ""
+        },
+        "bestseller": true, 
+        "featured": false, 
+        "details": null
     },
     
     {
@@ -21,7 +21,10 @@
         "category": "steel", 
         "price": 101,
         "currency": "USD",
-        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "image": { 
+            "src": "https://media.istockphoto.com/photos/brushed-aluminum-background-or-texture-picture-id942583502?k=20&m=942583502&s=612x612&w=0&h=7SxWpNw7IiddIY0_2Z-FMRKR3AH2RCzdOFowSPlQZwc=",
+            "alt": ""
+        },
         "bestseller": false, 
         "featured": false,
         "details": null
@@ -29,12 +32,13 @@
 
     {
         "id": 1,
-        "name": "Shape",
+        "name": "Light wood",
         "category": "wood",
-        "price": 93.89,
+        "price": 55.5,
         "currency": "USD",
         "image": {
-            "src": "http://geomiq.com/wp-content/uploads/2019/08/kisspng-sheet-metal-molybdenum-stainless-steel-rolling-inc-steel-plate-5aea05f508ace2.0164818015252863890355.png"
+            "src": "https://static.vecteezy.com/system/resources/previews/003/498/716/large_2x/seamless-texture-wood-old-oak-or-modern-wood-texture-free-photo.JPG",
+            "alt": ""
         },
         "bestseller": false, 
         "featured": false,
@@ -48,7 +52,7 @@
         "price": 120.21,
         "currency": "USD", 
         "image": {
-        "src": "https://ae01.alicdn.com/kf/Haf859724a1fb4969b0c14c361feafa753/Plaque-en-acier-inoxydable-1-5-paisseur-de-1mm-304mm-2mm-3mm-traitement-du-m-tal.jpg_Q90.jpg_.webp",
+        "src": "https://img.besthqwallpapers.com/Uploads/30-4-2020/130656/orange-brickwork-texture-orange-brick-texture-brick-background-stone-texture-brickwork-texture.jpg",
         "alt": ""
         },
         "bestseller": false, 
@@ -62,7 +66,10 @@
         "category": "concrete", 
         "price": 156,
         "currency": "USD",
-        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "image": { 
+            "src": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+            "alt": ""
+        },
         "bestseller": true, 
         "featured": false,
         "details": null
@@ -104,9 +111,12 @@
         "id": 8,
         "name": "Shape3",
         "category": "plastic", 
-        "price": 10441,
+        "price": 8500,
         "currency": "USD",
-        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "image": {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqg8y_hKBpnETfWjydUVqxTqZPHXQA9DsZtw&usqp=CAU",
+            "alt": ""
+        },
         "bestseller": false, 
         "featured": false,
         "details": null
@@ -117,7 +127,10 @@
         "category": "concrete", 
         "price": 156,
         "currency": "USD",
-        "image": "https://images.fineartamerica.com/images-medium-large-5/brushed-steel-metal-texture-2-redlightimage.jpg",
+        "image": { 
+            "src": "https://media.istockphoto.com/photos/close-up-seamless-concrete-background-and-textures-picture-id492302237?s=612x612",
+            "alt": ""
+        },
         "bestseller": true, 
         "featured": false,
         "details": null
@@ -139,12 +152,13 @@
  
     {
         "id": 111,
-        "name": "Shapedddd",
+        "name": "Dark wood",
         "category": "wood",
-        "price": 93.89,
+        "price": 91.00,
         "currency": "USD",
         "image": {
-            "src": "http://geomiq.com/wp-content/uploads/2019/08/kisspng-sheet-metal-molybdenum-stainless-steel-rolling-inc-steel-plate-5aea05f508ace2.0164818015252863890355.png"
+            "src": "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-s125-ake7011-a.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=e0614d01434b0078435c9c9b6463c9c1",
+            "alt": ""
         },
         "bestseller": false, 
         "featured": false,

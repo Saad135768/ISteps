@@ -19,6 +19,16 @@ export default class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           />
         </Head>
+        <style>{
+          `@font-face {
+            font-family: Archivo-Medium.ttf;
+            src: url('../public/fonts/static/Archivo/Archivo-Medium.ttf');
+          }
+          @font-face {
+            font-family: Archivo-Bold.ttf;
+            src: url('../public/fonts/static/Archivo/Archivo-Bold.ttf');
+          }`
+          }</style>
         <body>
           <Main />
           <NextScript />

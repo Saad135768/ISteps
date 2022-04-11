@@ -46,10 +46,6 @@ const useStyles = makeStyles(() => ({
             fontWeight: 300,
             paddingLeft: 1,
         },
-        // '@media (max-width: 300px)': {
-        //     bottom: 8,
-        //     right: 3,
-        // },
 
         '@media (max-width: 380px)': {
             display: 'none'

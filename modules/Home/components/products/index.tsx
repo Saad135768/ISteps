@@ -1,7 +1,6 @@
 import React, { useState, useEffect, FC } from 'react'
 import { Grid } from '@mui/material'
 import Product from './product'
-import { MdKeyboardArrowDown } from 'react-icons/md'
 import { CgArrowsExchangeAltV } from 'react-icons/cg'
 import useStyle from './style'
 import productsData from '../../../../data.json'
@@ -16,7 +15,7 @@ const Products: FC<{ page: number; pageSize: number, setProductsCount: (value: n
     if(sortBy === 'price') return productsData.products?.sort((a, b) => sortByAscendingly ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy])
     
     // Sorting by name
-    return productsData.products?.sort((a, b) => sortByAscendingly ? a['name'].charCodeAt(a['name'][0]) - b['name'].charCodeAt(b['name'][0]) : b['name'].charCodeAt(b['name'][0]) - a['name'].charCodeAt(a['name'][0]))
+    return productsData.products?.sort((a, b) => sortByAscendingly ? a[sortBy].charCodeAt(a[sortBy][0]) - b[sortBy].charCodeAt(b[sortBy][0]) : b[sortBy].charCodeAt(b[sortBy][0]) - a[sortBy].charCodeAt(a[sortBy][0]))
   }
 
   const sliceProducts = () => sortProducts().slice((page - 1) * pageSize, (page * pageSize))
@@ -56,7 +55,7 @@ const Products: FC<{ page: number; pageSize: number, setProductsCount: (value: n
             <option>price</option>
             <option>name</option>
         </select>
-         {/* <MdKeyboardArrowDown /> */}
+
       </span>
     </div>
     <div className={classes.div_products_wrapper}>

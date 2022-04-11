@@ -7,7 +7,6 @@ import productsData from '../../../../data.json'
 import MobileFilters from '../MobileFilters'
 import Router from 'next/router'
 import { omit } from 'ramda'
-import queryString from 'query-string'
 
 const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
 
@@ -22,51 +21,39 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
   const query = Router?.router?.query
 
   const handleChangeFilteringCategories = (e) => {
-    
+   
     // deselect
-    if (e.target.value === query?.['category']) {
-        return Router.push({ query: omit(['category'], { ...query }) }, undefined, { scroll: false })
-    }
-
-    else if (Array.isArray(query?.['category']) && (query?.['category']?.includes(e.target.value))) {
-        const deselect = query?.['category'].filter((q) => q !== e.target.value)
-        Router.push({ query: omit(['category'], { ...query }), query: {...query, ['category']: deselect }}, undefined, { scroll: false })
-    }
-
-    else if(((query?.['category']) && (e.target.value !== query?.['category']))) {
-          // select multiple filters in same category
-          Router.push(`?${queryString.stringify(query)}&${['category']}=${e.target.value}&page=1`, undefined, { scroll: false })
-    }
-
-    else {
-          // Select for first time
-        Router.push({ query: { ...query, ['category']: e.target.value, page: 1 } }, undefined, { scroll: false })
-      }
+    if (query?.['category']?.includes(e.target.value)) {
+      return Router.push({ query: omit(['category'], { ...query }) }, undefined, { scroll: false })
     }
     
+    if(query?.['category'] && !Array.isArray(query?.['category'])) {
+      return Router.push({ query: { ...query, ['category']: [query?.category, e.target.value], page: 1 } }, undefined, { scroll: false })
+    }
 
-    if(Array.isArray(query?.page)) {
-        omit(['page'], { ...query})
-        Router.push({ query: { ...query, page: 1 }}, undefined, { scroll: false } )
+    // if 2 category filters are already selected, then remove the first one
+    if (Array.isArray(query?.['category'])) {
+      const category: string[] = query?.['category']
+      return Router.push({ query: { ...query, 'category': [category[1], e.target.value], page: 1 }}, undefined, { scroll: false })
+    }
+    
+    // Select for first time
+      return Router.push({ query: { ...query, ['category']: e.target.value, page: 1 } }, undefined, { scroll: false })
+  }
+    
+    const hanldeFilterByPrice = (e) => {
+      if (query?.['price'] === e.target.value) { 
+        return Router.push({ query: omit(['price'], { ...query }) }, undefined, { scroll: false })
       }
-
-
-      const hanldeFilterByPrice = (e) => {
-        // if (e.target.value === query?.price) {
-        //     // deselect
-        //     return Router.push({ query: omit(['price'], { ...query }), ...query }, undefined, { scroll: false })
-        // } else {
-            Router.push({ query: { ...query?.cateogry, page: 1, price: e.target.value } }, undefined, { scroll: false })
-        // }
-        
-      }
+      Router.push({ query: { ...query, page: 1, price: e.target.value } }, undefined, { scroll: false })
+    }
 
   const classes = useStyles()
   return (
     <>
       <Grid item xs={12} md={3}>
         <aside className={classes.aside}>
-          <div style={{ borderBottom: '1px solid #C2C2C2' }}>
+          <div className={classes.div}>
             <h6 className={classes.h6}>Materials</h6>
             {categories.map((category) => (
               <div key={category}>
@@ -74,11 +61,9 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
                   control={<Checkbox color='primary' />}
                   label={category}
                   labelPlacement='end'
-                  onChange={(e) =>
-                    handleChangeFilteringCategories(e)
-                  }
+                  onChange={handleChangeFilteringCategories}
                   value={category}
-                  checked={query?.category?.includes(category)}
+                  checked={query?.category ? query?.category?.includes(category) : false}
                 />
               </div>
             ))}
@@ -111,7 +96,7 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
                 control={<Checkbox color='primary' />}
                 label={`$${averagePrice} - $${maxPrice}`}
                 labelPlacement='end'
-                value={156}
+                value={maxPrice}
                 onChange={hanldeFilterByPrice}
                 checked={+query?.price === maxPrice}
               />
@@ -137,6 +122,8 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
         <MobileFilters
           categories={categories}
           prices={{ minPrice, maxPrice, averagePrice }}
+          handleChangeFilteringCategories={handleChangeFilteringCategories}
+          hanldeFilterByPrice={hanldeFilterByPrice}
         />
       )}
     </>
