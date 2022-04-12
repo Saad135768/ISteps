@@ -40,7 +40,7 @@ const Header: FC = () => {
       </div>
 
       <div className={classes.div_bgImg_wrapper}> 
-        {true && <span className={classes.span_featured}> Featured</span>}
+        {selectedImg?.featured && <span className={classes.span_featured}> Featured</span>}
         <Image src={selectedImg?.image?.src} layout='responsive' width={1280} height={550} alt={selectedImg?.image?.alt} />
         </div>
       </div>

@@ -24,6 +24,11 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
    
     // deselect
     if (query?.['category']?.includes(e.target.value)) {
+      if(Array.isArray(query?.['category'])) {
+        const category: string[] = query?.['category'].find((p) => p !== e.target.value)
+        return Router.push({ query:  { ...query, category } }, undefined, { scroll: false })
+      } 
+      
       return Router.push({ query: omit(['category'], { ...query }) }, undefined, { scroll: false })
     }
     
