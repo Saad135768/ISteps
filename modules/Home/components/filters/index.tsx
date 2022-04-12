@@ -68,7 +68,7 @@ const Filters: FC<{ showMobileFilters: boolean }> = ({ showMobileFilters }) => {
                   labelPlacement='end'
                   onChange={handleChangeFilteringCategories}
                   value={category}
-                  checked={query?.category ? query?.category?.includes(category) : false}
+                  checked={!!query?.category && query?.category?.includes(category)}
                 />
               </div>
             ))}
